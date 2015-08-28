@@ -1,6 +1,6 @@
 class RegistrationController < ApplicationController
   before_action :require_login
-  before_action :admin_only, only: :dashboard
+  before_action :admin_only, only: [:dashboard, :new_registration]
 
   def number_of_children
 
@@ -61,6 +61,7 @@ class RegistrationController < ApplicationController
 
   def admin_only
     unless current_user.admin?
+      flash[:notice] = "Only admin can view this page"
       redirect_to :root
     end
   end

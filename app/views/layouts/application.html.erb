@@ -15,7 +15,7 @@
 <body>
   <nav class="tab-bar">
     <section class="middle tab-bar-section">
-      <h1 class="title">Mkidz Registration</h1>
+      <h1 class="title"><%= link_to "Mkidz Registration", root_path %></h1>
     </section>
   </nav>
 
@@ -32,7 +32,7 @@
 
   <div class="row">
     <% flash.each do |name, msg| -%>
-      <%= content_tag :div, class: "#{name} alert-box warning round", 'data-alert' => '' do   %>
+      <%= content_tag :div, class: "#{name} alert-box warning", 'data-alert' => '' do   %>
         <%= msg %> <a href="#" class="close">&times;</a>
       <% end %>
     <% end -%>
