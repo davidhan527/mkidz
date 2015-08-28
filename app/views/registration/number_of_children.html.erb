@@ -1,6 +1,12 @@
 <div class="row">
+  <p>
+    Welcome to Maranatha Grace Fort Lee. Please take a moment to fill out this registration form so we can have an accurate record of your child(ren) in our system. If you have any questions, please contact our Children's Ministry director, Jane Kim, at mkidz@maranathagrace.org.
+  </p>
+</div>
+
+<div class="row">
   <%= form_tag("/register", method: "get") do %>
-    <%= label_tag(:number_of_children, "How many children will you be registering?") %>
+    <%= label_tag(:number_of_children, "How many children will you be registering today?") %>
     <%= number_field_tag(:number_of_children) %>
     <%= submit_tag("Submit") %>
   <% end %>
