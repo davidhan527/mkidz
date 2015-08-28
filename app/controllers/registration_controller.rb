@@ -16,10 +16,12 @@ class RegistrationController < ApplicationController
 
   def create_registration
     @parent = Parent.new(parent_params)
-    @parent.save!
 
-
-    render json: @parent
+    if @parent.save
+      redirect_to :root
+    else
+      render :new_registration
+    end
   end
 
   private

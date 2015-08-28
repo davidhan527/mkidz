@@ -1,3 +1,17 @@
+<div class="row">
+  <% if @parent.errors.any? %>
+    <div id="error_explanation" class="alert-box info radius">
+      <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
+
+      <ul>
+        <% @parent.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
 <%= form_for(@parent, url: register_path) do |f| %>
   <div class="row">
     <%= f.label :first_name, "First Name" %>
