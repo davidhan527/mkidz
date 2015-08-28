@@ -1,4 +1,6 @@
 class RegistrationController < ApplicationController
+  before_action :require_login
+
   def number_of_children
 
   end

@@ -30,6 +30,8 @@ gem 'rails_12factor', group: :production
 
 gem 'clearance'
 
+gem 'meta_request'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

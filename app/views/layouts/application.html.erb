@@ -1,50 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Mkidz registraion</title>
+  <title>Mkidz registraion</title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="tab-bar">
+    <section class="middle tab-bar-section">
+      <h1 class="title">Mkidz Registration</h1>
+    </section>
+  </nav>
 
-  <body>
-    <nav class="tab-bar">
-      <section class="middle tab-bar-section">
-        <h1 class="title">Mkidz Registration</h1>
-      </section>
-    </nav>
-
-    <br>
-
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-    <%= button_to 'Sign out', sign_out_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
-
-  <div id="flash">
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>"><%= value %></div>
-    <% end %>
+  <div id="header" class="row">
+    <% if signed_in? -%>
+      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+    <% else -%>
+      <%= link_to t(".sign_in"), sign_in_path %>
+    <% end -%>
   </div>
 
-    <div class="row">
-      <% flash.each do |name, msg| -%>
-        <%= content_tag :div, class: "#{name} alert-box warning round", 'data-alert' => '' do   %>
-          <%= msg %> <a href="#" class="close">&times;</a>
-        <% end %>
-      <% end -%>
-    </div>
+  <div class="row">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, class: "#{name} alert-box warning round", 'data-alert' => '' do   %>
+        <%= msg %> <a href="#" class="close">&times;</a>
+      <% end %>
+    <% end -%>
+  </div>
 
-    <br>
+  <br>
 
-    <%= yield %>
-
-  </body>
+  <%= yield %>
+</body>
 </html>
