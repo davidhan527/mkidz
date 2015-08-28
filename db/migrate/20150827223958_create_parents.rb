@@ -1,7 +1,6 @@
 class CreateParents < ActiveRecord::Migration
   def change
     create_table :parents do |t|
-      t.string :name, null: false
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :second_guardian_first_name

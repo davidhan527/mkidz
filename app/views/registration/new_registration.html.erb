@@ -1,1 +1,138 @@
-hello world
+<%= form_for(@parent, url: register_path) do |f| %>
+  <div class="row">
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="row">
+    <%= f.label :last_name, "Last Name" %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="row">
+    <%= f.label :second_guardian_first_name, "Second parent's/guardian's first name (optional):" %>
+    <%= f.text_field :second_guardian_first_name %>
+  </div>
+
+  <div class="row">
+    <%= f.label :second_guardian_last_name, "Second parent's/guardian's last name (optional):" %>
+    <%= f.text_field :second_guardian_last_name %>
+  </div>
+
+  <div class="row">
+    <%= f.label :mailing_address %>
+    <%= f.text_area :mailing_address %>
+  </div>
+
+  <div class="row">
+    <%= f.label :phone_number %>
+    <%= f.telephone_field :phone_number %>
+  </div>
+
+  <div class="row">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="row">
+    <%= f.label :emergency_contact_preference, "In case we need to reach you during the Worship Gathering, please choose how you would prefer to be contacted:" %>
+
+    <%= f.label :emergency_contact_preference do %>
+      <%= f.radio_button("emergency_contact_preference", "text_me") %> Please text me
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= f.label :emergency_contact_preference do %>
+      <%= f.radio_button("emergency_contact_preference", "call_me") %> I would prefer a phone call
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= f.label :under_five_bathroom_policy_agreement, "MaranathaKidz asks parents to make sure their children have used the bathroom prior to the start of class. If your child is 5 or under, and he/she needs to use the bathroom once class has started, we will contact you so that you may escort him/her to the bathroom." %>
+
+    <%= f.label :under_five_bathroom_policy_agreement do %>
+      <%= f.check_box :under_five_bathroom_policy_agreement %> I am aware that I will be contacted if my child needs to use the bathroom.
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= f.label :notes_on_general_concerns, "This question applies to all of the children you are registering today: Are there any general concerns that we should be aware of about your child(ren)/family that would help us serve you better? (i.e. circumstances at home, physical limitations, not bathroom independent, etc.?)" %>
+
+    <%= f.label :notes_on_general_concerns do %>
+      <%= f.text_area :notes_on_general_concerns %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= f.label :received_policies_pamphlet, "I have been provided with a copy of MaranathaKidz and BridgeBabies policies and procedures pamphlet. I'm aware that I can also obtain a copy of said pamphlet from the MaranathaKidz registration area. Please ask us for a copy if we fail to provide one to you when you register your child(ren)." %>
+
+    <%= f.label :received_policies_pamphlet do %>
+      <%= f.check_box :received_policies_pamphlet %> I agree with the above statement.
+    <% end %>
+  </div>
+
+  <hr>
+
+  <%= f.fields_for :children do |children_form| %>
+    <div class="row">
+      <%= children_form.label :first_name %>
+      <%= children_form.text_field :first_name %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :last_name %>
+      <%= children_form.text_field :last_name %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :dob %>
+      <%= children_form.date_field :dob %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :have_allergies, "Does your child have any allergies that we should be aware of?" %>
+
+      <%= children_form.label :have_allergies do %>
+        <%= children_form.radio_button("have_allergies", true) %> Yes
+      <% end %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :have_allergies do %>
+        <%= children_form.radio_button("have_allergies", false) %> No
+      <% end %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :allergy_explanation, "If yes, please explain:" %>
+      <%= children_form.text_area :allergy_explanation %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :snack_permission_agreement, "Although MaranathaKidz is a nut-free environment, while under our care, children will receive a snack (goldfish, Veggie Sticks, pretzels, etc.). For the safety of all our children, MaranathaKidz doesn't allow outside snacks unless this has been pre-arranged and cleared with the director of MaranathaKidz." %>
+
+      <%= children_form.label :snack_permission_agreement do %>
+        <%= children_form.radio_button("snack_permission_agreement", "participate_in_snack_time") %> I authorize my child to participate in snack time.
+      <% end %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :snack_permission_agreement do %>
+        <%= children_form.radio_button("snack_permission_agreement", "dont_give_my_child_a_snack") %> I don't want my child to be given a snack during snack time.
+      <% end %>
+    </div>
+
+    <div class="row">
+      <%= children_form.label :snack_permission_agreement do %>
+        <%= children_form.radio_button("snack_permission_agreement", "permission_to_bring_own_snack") %> I have been given permission to bring a snack for my child.
+      <% end %>
+    </div>
+    <hr>
+  <% end %>
+
+  <div class="row">
+    <%= f.submit "Register", class: "small button green" %>
+  </div>
+<% end %>
+

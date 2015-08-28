@@ -7,6 +7,7 @@ class CreateChildren < ActiveRecord::Migration
       t.boolean :have_allergies, null: false
       t.text :allergy_explanation
       t.column :snack_permission_agreement, :integer, default: 0, null: false
+      t.references :parent
 
       t.timestamps null: false
     end
