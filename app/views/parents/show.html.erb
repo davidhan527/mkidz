@@ -1,4 +1,6 @@
 <div class="row">
+  <h4>Parent(s)</h4>
+
   <ul>
     <li><strong>First Name:</strong> <%= @parent.first_name %></li>
     <li><strong>Last Name:</strong>  <%= @parent.last_name %></li>
@@ -28,6 +30,24 @@
     <% if @parent.notes_on_general_concerns %>
       <li><strong>Notes on General Concerns:</strong> <%= @parent.notes_on_general_concerns %></li>
     <% end %>
-  </ul>
-</div>
 
+  </ul>
+
+  <hr>
+
+  <h4> Child(ren) </h4>
+
+  <% if @children.present? %>
+    <%@children.each do |child| %>
+      <ul>
+        <li><strong>First Name:</strong> <%= child.first_name %></li>
+        <li><strong>Last Name:</strong>  <%= child.last_name %></li>
+        <li><strong>Date of Birth:</strong>  <%= child.dob.strftime("%m-%d-%Y") %></li>
+        <li><strong>Have Allergies?:</strong>  <%= child.have_allergies? ? "Yes" : "No" %></li>
+        <li><strong>Allergy Notes:</strong>  <p><%= child.allergy_explanation %></p></li>
+        <li><strong>Snack Permission Agreement </strong>  <%= child.snack_permission_agreement.humanize %></li>
+      </ul>
+      <hr>
+    <% end %>
+  <% end %>
+</div>
