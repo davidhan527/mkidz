@@ -26,6 +26,8 @@ gem 'foundation-rails'
 
 gem 'awesome_print'
 
+gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,3 +50,4 @@ group :development do
   gem 'spring'
 end
 
+ruby "2.2.0"
