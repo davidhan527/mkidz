@@ -1,0 +1,7 @@
+<div class="row">
+  <% @parents.each do |parent| %>
+    <p>
+      <%= link_to "#{parent.first_name} #{parent.last_name}", parent %>
+    </p>
+  <% end %>
+</div>

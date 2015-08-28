@@ -11,6 +11,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   <nav class="tab-bar">
     <section class="middle tab-bar-section">
@@ -18,9 +19,12 @@
     </section>
   </nav>
 
+  <br>
+
   <div id="header" class="row">
     <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+      <%= current_user.email %>
+      <%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "button tiny" %>
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>
     <% end -%>

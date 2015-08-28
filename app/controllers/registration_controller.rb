@@ -1,5 +1,6 @@
 class RegistrationController < ApplicationController
   before_action :require_login
+  before_action :admin_only, only: :dashboard
 
   def number_of_children
 
@@ -24,6 +25,11 @@ class RegistrationController < ApplicationController
     else
       render :new_registration
     end
+  end
+
+  def dashboard
+    @parents = Parent.all
+
   end
 
   private
@@ -51,5 +57,11 @@ class RegistrationController < ApplicationController
         :snack_permission_agreement
       ]
     )
+  end
+
+  def admin_only
+    unless current_user.admin?
+      redirect_to :root
+    end
   end
 end

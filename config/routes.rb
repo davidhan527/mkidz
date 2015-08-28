@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'registration#number_of_children'
+
   get 'register' => 'registration#new_registration'
   post 'register' => 'registration#create_registration'
+  get 'dashboard' => 'registration#dashboard'
+
+  resources :parents, only: [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

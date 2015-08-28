@@ -8,6 +8,6 @@
   <%= form_tag("/register", method: "get") do %>
     <%= label_tag(:number_of_children, "How many children will you be registering today?") %>
     <%= number_field_tag(:number_of_children) %>
-    <%= submit_tag("Submit") %>
+    <%= submit_tag("Submit", class: "button tiny") %>
   <% end %>
 </div>
