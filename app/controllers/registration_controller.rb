@@ -5,7 +5,13 @@ class RegistrationController < ApplicationController
 
   def new_registration
     @parent = Parent.new
-    1.times { @parent.children.build}
+
+    if params[:number_of_children].to_i > 0
+      params[:number_of_children].to_i.times { @parent.children.build}
+    else
+      flash.now[:error] = "Please specify a number greater than 0"
+      render :number_of_children
+    end
   end
 
   def create_registration

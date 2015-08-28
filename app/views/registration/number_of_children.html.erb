@@ -1,0 +1,7 @@
+<div class="row">
+  <%= form_tag("/register", method: "get") do %>
+    <%= label_tag(:number_of_children, "How many children will you be registering?") %>
+    <%= number_field_tag(:number_of_children) %>
+    <%= submit_tag("Submit") %>
+  <% end %>
+</div>

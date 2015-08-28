@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'registration#new_registration'
+  root 'registration#number_of_children'
+  get 'register' => 'registration#new_registration'
   post 'register' => 'registration#create_registration'
 
   # Example of regular route:
